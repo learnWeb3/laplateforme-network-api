@@ -1,0 +1,349 @@
+/* COLOR SCHEMES  */
+
+:root {
+    --var-primary     : #2660A0;
+    --var-secondary   : #89C1CE;
+    --var-dark        : #0C0B11;
+    --var-dark-light  : #515151;
+    --var-grey        : #C4C4C4;
+    --var-yellow      : #FFCA4E;
+    --var-danger      : #FF4A4A;
+    --var-danger-light: #FFCCCC;
+    --var-white       : #FFF;
+}
+
+
+/* TEXT COLORS */
+
+.text-primary-color {
+    color: var(--var-primary);
+}
+
+.text-secondary-color {
+    color: var(--var-secondary);
+}
+
+.text-dark-color {
+    color: var(--var-dark);
+}
+
+.text-dark-light-color {
+    color: var(--var-dark-light);
+}
+
+.text-grey-color {
+    color: var(--var-grey);
+}
+
+.text-yellow-color {
+    color: var(--var-yellow);
+}
+
+.text-danger-color {
+    color: var(--var-danger);
+}
+
+.text-danger-light-color {
+    color: var(--var-danger-light);
+}
+
+/* BACKGROUND COLORS */
+
+.bg-primary-color {
+    background-color: var(--var-primary);
+}
+
+.bg-secondary-color {
+    background-color: var(--var-secondary);
+}
+
+.bg-dark-color {
+    background-color: var(--var-dark);
+}
+
+.bg-dark-light-color {
+    background-color: var(--var-dark-light);
+}
+
+.bg-grey-color {
+    background-color: var(--var-grey);
+}
+
+.bg-yellow-color {
+    background-color: var(--var-yellow);
+}
+
+.bg-danger-color {
+    background-color: var(--var-danger);
+}
+
+.bg-danger-light-color {
+    background-color: var(--var-danger-light);
+}
+
+/* 
+POSITIONNING UTILITIES */
+
+.absolute-left {
+    position: absolute;
+    left    : 1rem;
+}
+
+.bg-register {
+    background-image: url(../img/signup.jpg);
+}
+
+main {
+    min-height         : 100vh;
+    background-size    : cover;
+    background-repeat  : no-repeat;
+    background-position: center;
+}
+
+.overlay-linear-gradient {
+    min-height     : 100vh;
+    width          : 100%;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    background     : linear-gradient(107.41deg, rgba(255, 255, 255, 0.8) 0.21%, rgba(255, 255, 255, 0) 100%);
+}
+
+
+/* LOGO */
+
+.laplateforme-logo {
+    height: 15rem;
+    width : 15rem;
+}
+
+
+/* CARDS */
+
+/* REGISTER PAGE */
+
+#card-sign-up {
+    background-color: #89C1CE;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+}
+
+#card-sign-up button img {
+    height: 26px;
+    width : 26px;
+}
+
+@media screen and (min-width:992px) {
+    #card-sign-up {
+        height       : 888px;
+        width        : 710px;
+        border-radius: 26px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    #card-sign-up {
+        height: 100vh;
+        width : 100vw;
+    }
+}
+
+
+/* BUTTONS */
+
+#btn-signup {
+    height: 75px;
+    width : 600px;
+}
+
+/* NAVBAR */
+
+
+.input-group-image {
+    position: relative;
+}
+
+.absolute-right {
+    position: absolute;
+    right   : 2.5rem;
+    top     : .75rem;
+}
+
+/* PROFIL PAGE */
+
+
+.profil-header {
+    min-height         : 40vh;
+    position           : relative;
+    background-size    : 100% 75%;
+    background-position: top;
+    background-repeat  : no-repeat;
+    display            : flex;
+    justify-content    : center;
+    align-items        : flex-end;
+    cursor: pointer;
+}
+
+
+.profil-body h1 {
+    font-size: 1.5rem;
+}
+
+.profil-body h2 {
+    font-size: 1rem;
+}
+
+#avatar {
+    height          : 10rem;
+    width           : 10rem;
+    background-color: var(--var-white);
+    padding         : 1rem;
+    border-radius   : 50%;
+    cursor: pointer;
+}
+
+.social-platforms {
+    height: 2.5rem;
+    width : 2.5rem;
+    cursor: pointer;
+}
+
+.see-details{
+    cursor: pointer;
+}
+
+#coding-skills,
+#last-posts,
+#hobbies,
+#experiences {
+    min-height: 33vh;
+}
+
+#coding-skills .header,
+#last-posts .header,
+#hobbies .header,
+#experiences .header {
+    height          : 20%;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    background-color: var(--var-secondary);
+}
+
+@media screen and (min-width:768px) {
+
+    #coding-skills .header,
+    #last-posts .header,
+    #hobbies .header,
+    #experiences .header {
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+    }
+
+}
+
+
+
+#coding-skills .body,
+#last-posts .body,
+#hobbies .body,
+#experiences .body {
+    overflow: auto;
+}
+
+@media screen and (min-width:768px) {
+
+    #coding-skills .body,
+    #last-posts .body,
+    #hobbies .body,
+    #experiences .body {
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    #coding-skills .body,
+    #last-posts .body,
+    #hobbies .body,
+    #experiences .body {
+        height: 60vh;
+    }
+}
+
+#coding-skills .list-item,
+#last-posts .list-item,
+#hobbies .list-item,
+#experiences .list-item {
+    height         : max-content;
+    width          : 100%;
+    list-style-type: none;
+    padding        : .5rem;
+    display        : flex;
+    align-items    : center;
+}
+
+
+#coding-skills .list-item p,
+#last-posts .list-item p,
+#hobbies .list-item p,
+#experiences .list-item p {
+    margin-top   : initial;
+    margin-bottom: initial;
+}
+
+.pen-datas{
+    cursor: pointer;
+}
+
+/* OVERLAYS */
+
+
+.overlay-light {
+    height          : 100%;
+    width           : 100%;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    background-color: rgba(255, 255, 255, 0.33)
+}
+
+
+/* SPECIAL UTILISTIES */
+@media screen and (min-width:768px) {
+    .justify-content-md-end {
+        justify-content: flex-end;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    .justify-content-sm-start {
+        justify-content: start
+    }
+}
+
+
+.my-20 {
+    margin-top   : 7.5rem;
+    margin-bottom: 7.5rem;
+}
+
+@media screen and (max-width:786px) {
+    .my-sm-20 {
+        margin-top   : 7.5rem;
+        margin-bottom: 7.5rem;
+    }
+}
+
+/* CARDS */
+
+.card{
+    padding:1rem;
+}
+
+.text-justify{
+    text-align:justify;
+}

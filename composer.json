@@ -1,0 +1,14 @@
+{
+  "name": "kasper/social-network",
+  "description": "A social-network platform for LaPlateforme_ coding scholl*",
+  "authors": [
+    {
+      "name": "antoine-tech",
+      "email": "antoinehadrienleguillou@outlook.com"
+    }
+  ],
+  "require": {
+    "firebase/php-jwt": "^5.2",
+    "fzaninotto/faker": "^1.9"
+  }
+}
