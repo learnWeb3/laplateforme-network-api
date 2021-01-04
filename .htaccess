@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule .* index.php?request_uri=%{REQUEST_URI}&query_string=%{QUERY_STRING} [L,QSA]
