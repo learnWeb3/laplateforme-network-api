@@ -8,29 +8,18 @@ class GoogleController extends ApplicationController
     public function __construct(array $params, string $query_string, string $http_method, string $asked_method)
     {
         parent::__construct($params, $query_string, $http_method, $asked_method);
-
     }
 
     public function consent()
     {
-
         $Guser = new Google_Client();
-
         $Guser->setAuthConfig(GOOGLE_CONFIG);
         $Guser->setAccessType('online');
-        // Using "consent" ensures that your application always receives a refresh token.
-        // If you are not using offline access, you can omit this.
-        //$Guser->setApprovalPrompt("consent");
         $Guser->setIncludeGrantedScopes(true);
         $Guser->setScopes('email');
-
-        //Create url
         $authUrl = $Guser->createAuthUrl();
         $url = ['url' => $authUrl];
-
         echo json_encode($url);
-
-
     }
 
     public function authorize()
@@ -41,32 +30,28 @@ class GoogleController extends ApplicationController
         $Guser->setIncludeGrantedScopes(true);
         $Guser->setScopes('email');
 
-        if (isset($_GET['code'])) {
-            $code = $_GET['code'];
+        if (isset($this->request_params['code'])) {
+            $code = $this->request_params['code'];
             $token = $Guser->fetchAccessTokenWithAuthCode($code);
-
             if ($Guser->getAccessToken()) {
-
-                $token = $Guser->getAccessToken();
                 $data = $Guser->verifyIdToken();
-
                 $user = User::checkUser($this->connection, $data);
-
-                $payload = ['JWT' =>
-                    ["id" => $user['id'],
-                    "firstname" => $user['firstname'],
-                    'lastname' => $user['lastname'],
-                    "email" => $user['email']]
+                $payload = [
+                    'JWT' =>
+                    [
+                        "id" => $user['id'],
+                        "firstname" => $user['firstname'],
+                        'lastname' => $user['lastname'],
+                        "email" => $user['email']
+                    ]
                 ];
-
                 $jwt = JWT::encode($payload, JWT_SECRET_KEY);
-                echo json_encode(['JWT' => $jwt]);
-            }else{
+                echo json_encode(['jwt_token' => $jwt]);
+            } else {
                 http_response_code('400');
             }
-
         } else {
-            http_response_code('500');
+            http_response_code('422');
         }
     }
 }

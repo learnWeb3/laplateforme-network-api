@@ -17,7 +17,7 @@ define(
         // /consent
         array("method" => "GET", "path" => '/' . 'consent' , "route" => "google#consent"),
         // /authorize
-        array("method" => "GET", "path" => '/' . 'authorize' , "route" => "google#authorize"),
+        array("method" => "POST", "path" => '/' . 'authorize' , "route" => "google#authorize"),
 
         // /posts
         array("method" => "GET", "path" => '/' . 'posts', "route" => "posts#index"),
