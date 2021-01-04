@@ -2,7 +2,8 @@
 
 use Firebase\JWT\JWT;
 
-class GoogleController extends ApplicationController{
+class GoogleController extends ApplicationController
+{
 
     public function __construct(array $params, string $query_string, string $http_method, string $asked_method)
     {
@@ -10,7 +11,7 @@ class GoogleController extends ApplicationController{
 
     }
 
-    public function connectUser()
+    public function consent()
     {
 
         $Guser = new Google_Client();
@@ -23,47 +24,49 @@ class GoogleController extends ApplicationController{
         $Guser->setIncludeGrantedScopes(true);
         $Guser->setScopes('email');
 
+        //Create url
+        $authUrl = $Guser->createAuthUrl();
+        $url = ['url' => $authUrl];
+
+        echo json_encode($url);
+
+
+    }
+
+    public function authorize()
+    {
+        $Guser = new Google_Client();
+        $Guser->setAuthConfig(GOOGLE_CONFIG);
+        $Guser->setAccessType('online');
+        $Guser->setIncludeGrantedScopes(true);
+        $Guser->setScopes('email');
+
         if (isset($_GET['code'])) {
+            $code = $_GET['code'];
+            $token = $Guser->fetchAccessTokenWithAuthCode($code);
 
-            $token = $Guser->fetchAccessTokenWithAuthCode($_GET['code']);
-            session_start();
-            $_SESSION['id_token_token'] = $token;
+            if ($Guser->getAccessToken()) {
 
-        }
+                $token = $Guser->getAccessToken();
+                $data = $Guser->verifyIdToken();
 
-        if (
-            !empty($_SESSION['id_token_token'])
-            && isset($_SESSION['id_token_token']['id_token'])
-        ) {
+                $user = User::checkUser($this->connection, $data);
 
-            $Guser->setAccessToken($_SESSION['id_token_token']);
+                $payload = ['JWT' =>
+                    ["id" => $user['id'],
+                    "firstname" => $user['firstname'],
+                    'lastname' => $user['lastname'],
+                    "email" => $user['email']]
+                ];
+
+                $jwt = JWT::encode($payload, JWT_SECRET_KEY);
+                echo json_encode(['JWT' => $jwt]);
+            }else{
+                http_response_code('400');
+            }
 
         } else {
-
-            $authUrl = $Guser->createAuthUrl();
-
-            $url = ['url' => $authUrl];
-
-            echo json_encode($url);
-
-        }
-        if ($Guser->getAccessToken()) {
-
-            $token = $Guser->getAccessToken();
-            $data = $Guser->verifyIdToken();
-
-            $user = User::checkUser($this->connection, $data);
-
-            $payload = ['JWT' => ["id" => $user['id'],
-                "firstname" => $user['firstname'],
-                'lastname' => $user['lastname'],
-                "email" => $user['email']]
-            ];
-
-            $jwt = JWT::encode($payload, JWT_SECRET_KEY);
-
-
-            echo json_encode(['JWT' => $jwt]);
+            http_response_code('500');
         }
     }
 }
