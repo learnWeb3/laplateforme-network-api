@@ -36,17 +36,18 @@ class GoogleController extends ApplicationController
             if ($Guser->getAccessToken()) {
                 $data = $Guser->verifyIdToken();
                 $user = User::checkUser($this->connection, $data);
-                $payload = [
-                    'JWT' =>
-                    [
-                        "id" => $user['id'],
-                        "firstname" => $user['firstname'],
-                        'lastname' => $user['lastname'],
-                        "email" => $user['email']
-                    ]
-                ];
-                $jwt = JWT::encode($payload, JWT_SECRET_KEY);
-                echo json_encode(['jwt_token' => $jwt]);
+                $date = new DateTime();
+                $payload = array(
+                    "sub" => json_encode($user),
+                    "iat" => $date->getTimestamp(),
+                );
+                
+                echo json_encode(
+                    array(
+                        'user' => $user,
+                        'jwt_token' => JWT::encode($payload, JWT_SECRET_KEY)
+                    )
+                );
             } else {
                 http_response_code('400');
             }
