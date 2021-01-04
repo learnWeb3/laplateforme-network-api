@@ -8,8 +8,6 @@ define(
         array("method" => "GET", "path" => '/', "route" => "users#index"),
         // /users
         array("method" => "GET", "path" => '/' . 'users', "route" => "users#index"),
-        array("method" => "POST", "path" => '/' . 'users', "route" => "users#create"),
-        array("method" => "POST", "path" => '/' . 'signin', "route" => "users#signin"),
         array("method" => "GET", "path" => '/' . 'signin', "route" => "users#signin"),
         array("method" => "GET", "path" => '/' . 'users' . '/:user_id', "route" => "users#show"),
         array("method" => "PUT", "path" => '/' . 'users' . '/:user_id', "route" => "users#update"),

@@ -143,8 +143,8 @@ class User extends Application
         OR id_user=?
         ORDER BY posts.created_at DESC LIMIT $limit OFFSET $offset";
         $results = Request::send($connection, $request_body, [$this->id, $this->id])->fetchAll(PDO::FETCH_ASSOC);
-        if (empty($results) && $offset = 0) {
-            $results = Post::all($connection, $endpoint_path, $offset, $limit);
+        if (empty($results) && $offset == 0) {
+            return Post::all($connection, $endpoint_path, $offset, $limit);
         } else {
             $next_start = $offset += 10;
             $previous_start = $offset - 10 >= 0 ? $offset - 10 : 0;

@@ -35,20 +35,6 @@ class UsersController extends ApplicationController
         }
     }
 
-    public function create()
-    {
-        if (isset($this->request_params['email'], $this->request_params['password'], $this->request_params['password_confirmation'])) {
-            try {
-
-                echo json_encode(User::signUp($this->connection, $this->request_params['email'], $this->request_params['password'], $this->request_params['password_confirmation']));
-            } catch (Exception $eror) {
-                http_response_code(500);
-            }
-        } else {
-            http_response_code(422);
-        }
-    }
-
     public function update()
     {
         if (isset($this->user)) {
@@ -84,21 +70,8 @@ class UsersController extends ApplicationController
 
     public function signin()
     {
-        if (isset($this->request_params['email'], $this->request_params['password'])) {
-            try {
-                echo json_encode(User::signIn($this->connection, $this->request_params['email'], $this->request_params['password']));
-            } catch (Exception $error) {
-                $message = $error->getMessage();
-                switch ($message) {
-                    case "invalid informations":
-                        http_response_code(401);
-                        break;
-                    default:
-                        http_response_code(500);
-                        break;
-                }
-            }
-        } else if (isset($this->current_user)) {
+
+        if (isset($this->current_user)) {
             try {
                 $user = User::find($this->connection, $this->current_user['id'])->fetchAll(PDO::FETCH_ASSOC);
                 if (empty($user)) {
