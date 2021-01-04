@@ -49,7 +49,9 @@ define(
         // UPLOADS
         "ImagesController",
         // CHATS
-        "ChatsController"
+        "ChatsController",
+        //GOOGLE AUTH
+        "GoogleController"
     ]
 );
 

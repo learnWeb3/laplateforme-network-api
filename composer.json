@@ -9,6 +9,7 @@
   ],
   "require": {
     "firebase/php-jwt": "^5.2",
-    "fzaninotto/faker": "^1.9"
+    "fzaninotto/faker": "^1.9",
+    "google/apiclient": "^2.7"
   }
 }

@@ -290,4 +290,29 @@ class User extends Application
             return array('message' => 'passwords does not match');
         }
     }
+
+    public static function checkUser($connection, $dataGoogle){
+
+            try{
+                $req = $connection->prepare("SELECT * FROM users WHERE email = ?");
+                $req->execute([$dataGoogle['email']]);
+                $user = $req->fetch();
+
+            }catch (PDOException $e){
+                return $e->getMessage();
+            }
+
+            //If empty register user
+            if(empty($user)){
+                try{
+                    User::create($connection, ['email', 'firstname', 'lastname', 'avatar'],
+                        [$dataGoogle['email'], $dataGoogle['given_name'], $dataGoogle['family_name'], $dataGoogle['picture']]);
+                    return User::lastCreatedRow($connection)->fetchAll(PDO::FETCH_ASSOC)[0];
+                }catch (PDOException $e){
+                    return $e->getMessage();
+                }
+            }else{
+                return $user;
+            }
+    }
 }

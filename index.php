@@ -9,7 +9,10 @@ require_once "./app/config/routes.php";
 
 require_once "./app/config/autoloader.php";
 
+require_once "./app/config/google_config.php";
+
 require_once "./app/helpers/Autoloader.php";
+
 
 require __DIR__ . '/vendor/autoload.php';
 

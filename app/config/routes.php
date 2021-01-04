@@ -14,6 +14,8 @@ define(
         array("method" => "GET", "path" => '/' . 'users' . '/:user_id', "route" => "users#show"),
         array("method" => "PUT", "path" => '/' . 'users' . '/:user_id', "route" => "users#update"),
         array("method" => "DELETE", "path" => '/' . 'users' . '/:user_id', "route" => "users#delete"),
+        // GOOGLE AUTH
+        array("method" => "GET", "path" => '/' .'connect', "route" =>"google#connectUser"),
         // /posts
         array("method" => "GET", "path" => '/' . 'posts', "route" => "posts#index"),
         array("method" => "GET", "path" => '/' . 'posts' .  '/:post_id', "route" => "posts#show"),
