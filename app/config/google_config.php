@@ -7,7 +7,5 @@ define("GOOGLE_CONFIG", [
     "auth_provider_x509_cert_url" => "https://www.googleapis.com/oauth2/v1/certs",
     "client_secret" => "eE2yZgnWq8Q1PsafMmwD6mKM",
     "redirect_uris" => [
-        "http://localhost/social-network/users/connect",
-        "http://localhost/social-network/authorize",
-        "http://localhost:3000/social-network/authorize"]
+        "http://localhost:3000/authorize"]
 ]);
