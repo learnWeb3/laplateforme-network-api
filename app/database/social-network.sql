@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 31, 2020 at 07:21 PM
+-- Generation Time: Jan 04, 2021 at 10:22 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -35,6 +35,25 @@ CREATE TABLE `chats` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `chats`
+--
+
+INSERT INTO `chats` (`id`, `created_at`, `updated_at`) VALUES
+(1, '2020-12-31 18:45:30', '0000-00-00 00:00:00'),
+(2, '2020-12-31 18:47:50', '0000-00-00 00:00:00'),
+(3, '2020-12-31 20:05:37', '0000-00-00 00:00:00'),
+(4, '2020-12-31 20:11:18', '0000-00-00 00:00:00'),
+(5, '2021-01-03 13:01:11', '0000-00-00 00:00:00'),
+(6, '2021-01-03 13:11:13', '0000-00-00 00:00:00'),
+(7, '2021-01-03 13:21:51', '0000-00-00 00:00:00'),
+(8, '2021-01-03 13:23:17', '0000-00-00 00:00:00'),
+(9, '2021-01-03 13:25:06', '0000-00-00 00:00:00'),
+(10, '2021-01-03 13:46:44', '0000-00-00 00:00:00'),
+(11, '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(12, '2021-01-04 08:59:22', '0000-00-00 00:00:00'),
+(13, '2021-01-04 11:55:15', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +67,50 @@ CREATE TABLE `chat_users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_users`
+--
+
+INSERT INTO `chat_users` (`id`, `id_chat`, `id_user`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2020-12-31 18:45:02', '0000-00-00 00:00:00'),
+(2, 1, 2, '2020-12-31 18:45:15', '0000-00-00 00:00:00'),
+(3, 2, 51, '2020-12-31 18:48:07', '0000-00-00 00:00:00'),
+(4, 3, 2, '2020-12-31 20:05:37', '0000-00-00 00:00:00'),
+(5, 3, 1, '2020-12-31 20:05:37', '0000-00-00 00:00:00'),
+(6, 4, 2, '2020-12-31 20:11:18', '0000-00-00 00:00:00'),
+(7, 4, 1, '2020-12-31 20:11:18', '0000-00-00 00:00:00'),
+(8, 4, 51, '2020-12-31 20:11:18', '0000-00-00 00:00:00'),
+(9, 5, 6, '2021-01-03 13:01:11', '0000-00-00 00:00:00'),
+(10, 5, 20, '2021-01-03 13:01:11', '0000-00-00 00:00:00'),
+(11, 5, 51, '2021-01-03 13:01:11', '0000-00-00 00:00:00'),
+(12, 6, 2, '2021-01-03 13:11:13', '0000-00-00 00:00:00'),
+(13, 6, 9, '2021-01-03 13:11:13', '0000-00-00 00:00:00'),
+(14, 6, 51, '2021-01-03 13:11:13', '0000-00-00 00:00:00'),
+(15, 7, 6, '2021-01-03 13:21:51', '0000-00-00 00:00:00'),
+(16, 7, 51, '2021-01-03 13:21:51', '0000-00-00 00:00:00'),
+(17, 8, 4, '2021-01-03 13:23:17', '0000-00-00 00:00:00'),
+(18, 8, 51, '2021-01-03 13:23:17', '0000-00-00 00:00:00'),
+(19, 9, 3, '2021-01-03 13:25:06', '0000-00-00 00:00:00'),
+(20, 9, 51, '2021-01-03 13:25:06', '0000-00-00 00:00:00'),
+(21, 10, 5, '2021-01-03 13:46:44', '0000-00-00 00:00:00'),
+(22, 10, 10, '2021-01-03 13:46:44', '0000-00-00 00:00:00'),
+(23, 10, 51, '2021-01-03 13:46:44', '0000-00-00 00:00:00'),
+(24, 11, 51, '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(25, 11, 1, '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(26, 11, 3, '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(27, 11, 2, '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(28, 11, 20, '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(29, 11, 51, '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(30, 12, 4, '2021-01-04 08:59:22', '0000-00-00 00:00:00'),
+(31, 12, 12, '2021-01-04 08:59:22', '0000-00-00 00:00:00'),
+(32, 12, 51, '2021-01-04 08:59:22', '0000-00-00 00:00:00'),
+(33, 13, 1, '2021-01-04 11:55:15', '0000-00-00 00:00:00'),
+(34, 13, 8, '2021-01-04 11:55:15', '0000-00-00 00:00:00'),
+(35, 13, 9, '2021-01-04 11:55:15', '0000-00-00 00:00:00'),
+(36, 13, 6, '2021-01-04 11:55:15', '0000-00-00 00:00:00'),
+(37, 13, 11, '2021-01-04 11:55:15', '0000-00-00 00:00:00'),
+(38, 13, 51, '2021-01-04 11:55:15', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -169,7 +232,8 @@ INSERT INTO `comments` (`id`, `id_post`, `id_user`, `content`, `created_at`, `up
 (98, 95, 2, 'Accusamus quo omnis qui aut ullam maxime omnis officia. Praesentium aut ipsam et quasi unde totam eius. Dolorum blanditiis magni non eum cumque. Et optio harum ipsa dolore delectus.', '2020-12-31 15:05:16', '0000-00-00 00:00:00'),
 (99, 84, 2, 'Fuga dicta facere ut suscipit. Non quibusdam exercitationem amet dolorem corrupti sunt nostrum. Fuga voluptatem eaque quaerat dicta architecto libero. Rem ipsa vero sunt non.', '2020-12-31 15:05:16', '0000-00-00 00:00:00'),
 (100, 80, 2, 'Consequatur ipsum facere ut qui enim officiis qui. Quo voluptatibus ipsa et. Placeat corrupti accusantium voluptatem enim consequatur quasi ut minima. Quos voluptatem officia amet repellat.', '2020-12-31 15:05:16', '0000-00-00 00:00:00'),
-(101, 102, 51, 'hello world', '2020-12-31 17:04:21', '0000-00-00 00:00:00');
+(101, 102, 51, 'hello world', '2020-12-31 17:04:21', '0000-00-00 00:00:00'),
+(105, 1, 52, 'hello', '2021-01-04 20:12:23', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -421,12 +485,13 @@ INSERT INTO `follows` (`id`, `id_follower`, `id_followed`, `created_at`, `update
 (104, 1, 51, '2020-12-31 16:19:21', '0000-00-00 00:00:00'),
 (105, 7, 51, '2020-12-31 16:27:28', '0000-00-00 00:00:00'),
 (106, 7, 51, '2020-12-31 16:30:15', '0000-00-00 00:00:00'),
-(110, 51, 7, '2020-12-31 16:33:36', '0000-00-00 00:00:00'),
 (112, 51, 2, '2020-12-31 16:37:44', '0000-00-00 00:00:00'),
 (113, 51, 3, '2020-12-31 16:38:35', '0000-00-00 00:00:00'),
-(114, 51, 5, '2020-12-31 16:38:43', '0000-00-00 00:00:00'),
-(115, 51, 6, '2020-12-31 17:36:22', '0000-00-00 00:00:00'),
-(116, 51, 1, '2020-12-31 17:51:15', '0000-00-00 00:00:00');
+(116, 51, 1, '2020-12-31 17:51:15', '0000-00-00 00:00:00'),
+(117, 51, 6, '2021-01-01 15:26:57', '0000-00-00 00:00:00'),
+(118, 51, 10, '2021-01-01 15:27:11', '0000-00-00 00:00:00'),
+(119, 51, 7, '2021-01-03 15:41:50', '0000-00-00 00:00:00'),
+(121, 51, 5, '2021-01-04 08:53:11', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -571,7 +636,9 @@ INSERT INTO `likes` (`id`, `id_post`, `id_user`, `created_at`, `updated_at`) VAL
 (97, 25, 1, '2020-12-31 15:05:17', '0000-00-00 00:00:00'),
 (98, 35, 16, '2020-12-31 15:05:17', '0000-00-00 00:00:00'),
 (99, 46, 41, '2020-12-31 15:05:17', '0000-00-00 00:00:00'),
-(100, 87, 48, '2020-12-31 15:05:17', '0000-00-00 00:00:00');
+(100, 87, 48, '2020-12-31 15:05:17', '0000-00-00 00:00:00'),
+(106, 103, 51, '2021-01-03 15:41:40', '0000-00-00 00:00:00'),
+(107, 2, 51, '2021-01-03 15:41:45', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -587,6 +654,102 @@ CREATE TABLE `messages` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `id_user`, `id_chat`, `content`, `created_at`, `updated_at`) VALUES
+(1, 51, 3, 'salut mec', '2020-12-31 20:05:37', '0000-00-00 00:00:00'),
+(2, 51, 3, 'salut dude', '2020-12-31 20:10:13', '0000-00-00 00:00:00'),
+(3, 51, 3, 'salut mecton', '2020-12-31 20:10:21', '0000-00-00 00:00:00'),
+(4, 51, 4, 'salut mecton', '2020-12-31 20:11:18', '0000-00-00 00:00:00'),
+(5, 51, 4, 'salut putin', '2020-12-31 20:11:28', '0000-00-00 00:00:00'),
+(6, 51, 4, 'salut putin', '2021-01-01 16:13:42', '0000-00-00 00:00:00'),
+(7, 51, 4, 'hello world', '2021-01-01 17:19:27', '0000-00-00 00:00:00'),
+(8, 51, 4, 'hello world', '2021-01-01 17:21:07', '0000-00-00 00:00:00'),
+(9, 51, 4, 'yo mec', '2021-01-01 17:21:46', '0000-00-00 00:00:00'),
+(10, 51, 4, 'hehehe', '2021-01-01 17:22:32', '0000-00-00 00:00:00'),
+(11, 51, 4, 'yo mec', '2021-01-01 17:25:54', '0000-00-00 00:00:00'),
+(12, 51, 4, 'hahahhhahhah', '2021-01-01 17:27:22', '0000-00-00 00:00:00'),
+(13, 51, 4, 'hahahhhahhah', '2021-01-01 17:28:02', '0000-00-00 00:00:00'),
+(14, 51, 4, 'hhiigiigigi', '2021-01-01 17:28:13', '0000-00-00 00:00:00'),
+(15, 51, 4, 'hehehehheheh', '2021-01-01 17:28:53', '0000-00-00 00:00:00'),
+(16, 51, 4, 'cacaaac', '2021-01-01 17:29:35', '0000-00-00 00:00:00'),
+(17, 51, 4, 'pipipu', '2021-01-01 17:31:48', '0000-00-00 00:00:00'),
+(18, 51, 4, 'yo mec ', '2021-01-01 17:32:16', '0000-00-00 00:00:00'),
+(19, 51, 4, 'yo mec', '2021-01-01 17:33:00', '0000-00-00 00:00:00'),
+(20, 51, 2, 'heheeeh', '2021-01-01 17:34:49', '0000-00-00 00:00:00'),
+(21, 51, 4, 'hahaha', '2021-01-01 17:43:18', '0000-00-00 00:00:00'),
+(22, 51, 4, 'lololo', '2021-01-01 17:44:15', '0000-00-00 00:00:00'),
+(23, 51, 4, 'hhihihih', '2021-01-01 17:45:10', '0000-00-00 00:00:00'),
+(24, 51, 4, 'hahahah', '2021-01-01 17:45:58', '0000-00-00 00:00:00'),
+(25, 51, 4, 'yoyoyoy', '2021-01-01 17:50:52', '0000-00-00 00:00:00'),
+(26, 51, 4, 'shit', '2021-01-01 17:52:27', '0000-00-00 00:00:00'),
+(27, 51, 4, 'djdjjdj', '2021-01-01 17:53:09', '0000-00-00 00:00:00'),
+(28, 51, 4, 'djdjjdj', '2021-01-01 17:54:50', '0000-00-00 00:00:00'),
+(29, 51, 4, 'ususuuusuu', '2021-01-01 17:55:54', '0000-00-00 00:00:00'),
+(30, 51, 4, 'ususuuusuu', '2021-01-01 17:57:05', '0000-00-00 00:00:00'),
+(31, 51, 4, 'ususuuusuu', '2021-01-01 17:58:04', '0000-00-00 00:00:00'),
+(32, 51, 4, 'lalalalal', '2021-01-01 17:58:52', '0000-00-00 00:00:00'),
+(33, 51, 4, 'lalalalal', '2021-01-01 17:59:39', '0000-00-00 00:00:00'),
+(34, 51, 2, 'toto', '2021-01-01 18:00:01', '0000-00-00 00:00:00'),
+(35, 51, 2, 'toto', '2021-01-01 18:00:39', '0000-00-00 00:00:00'),
+(36, 51, 2, 'toto', '2021-01-01 18:01:16', '0000-00-00 00:00:00'),
+(37, 51, 2, 'toto', '2021-01-01 18:01:41', '0000-00-00 00:00:00'),
+(38, 51, 2, 'haha', '2021-01-01 18:02:25', '0000-00-00 00:00:00'),
+(39, 51, 2, 'hihih', '2021-01-01 18:02:41', '0000-00-00 00:00:00'),
+(40, 51, 2, 'zoozozozo', '2021-01-01 18:03:05', '0000-00-00 00:00:00'),
+(41, 51, 2, 'rahan', '2021-01-01 18:04:01', '0000-00-00 00:00:00'),
+(42, 51, 4, 'lol', '2021-01-01 18:06:20', '0000-00-00 00:00:00'),
+(43, 51, 2, 'hahahaha', '2021-01-01 18:06:41', '0000-00-00 00:00:00'),
+(44, 51, 2, 'razolan', '2021-01-01 18:13:12', '0000-00-00 00:00:00'),
+(45, 51, 4, 'razolan', '2021-01-01 18:14:46', '0000-00-00 00:00:00'),
+(46, 51, 4, 'ralouf', '2021-01-01 18:14:53', '0000-00-00 00:00:00'),
+(47, 51, 2, 'ralouf', '2021-01-01 18:15:19', '0000-00-00 00:00:00'),
+(48, 51, 2, 'rrarararrarra', '2021-01-01 18:15:25', '0000-00-00 00:00:00'),
+(49, 51, 2, 'hhihihi', '2021-01-01 18:15:41', '0000-00-00 00:00:00'),
+(50, 51, 4, 'heeh', '2021-01-01 18:25:38', '0000-00-00 00:00:00'),
+(51, 51, 4, 'yo', '2021-01-01 18:25:43', '0000-00-00 00:00:00'),
+(52, 51, 2, 'salut c\'est cool', '2021-01-01 18:25:58', '0000-00-00 00:00:00'),
+(53, 51, 2, 'salut c\'est cool', '2021-01-01 18:26:00', '0000-00-00 00:00:00'),
+(54, 51, 2, 'salut c\'est cool', '2021-01-01 18:26:05', '0000-00-00 00:00:00'),
+(55, 51, 2, 'yai', '2021-01-03 09:57:45', '0000-00-00 00:00:00'),
+(56, 51, 4, 'salut les keys', '2021-01-03 10:34:49', '0000-00-00 00:00:00'),
+(57, 51, 4, 'slaut les keys', '2021-01-03 10:35:07', '0000-00-00 00:00:00'),
+(58, 51, 4, 'slaut les keys', '2021-01-03 10:35:51', '0000-00-00 00:00:00'),
+(59, 51, 4, 'heheh', '2021-01-03 10:36:05', '0000-00-00 00:00:00'),
+(60, 51, 2, 'heai', '2021-01-03 10:42:01', '0000-00-00 00:00:00'),
+(61, 51, 2, 'heai', '2021-01-03 10:42:50', '0000-00-00 00:00:00'),
+(62, 51, 2, 'heai', '2021-01-03 10:43:08', '0000-00-00 00:00:00'),
+(63, 51, 2, 'heai', '2021-01-03 10:43:39', '0000-00-00 00:00:00'),
+(64, 51, 2, 'yo', '2021-01-03 10:45:12', '0000-00-00 00:00:00'),
+(65, 51, 5, 'Votre message commence ici...', '2021-01-03 13:01:11', '0000-00-00 00:00:00'),
+(66, 51, 4, 'salut putin', '2021-01-03 13:06:47', '0000-00-00 00:00:00'),
+(67, 51, 6, 'heheheh', '2021-01-03 13:11:13', '0000-00-00 00:00:00'),
+(68, 51, 7, 'hello', '2021-01-03 13:21:51', '0000-00-00 00:00:00'),
+(69, 51, 8, 'toto', '2021-01-03 13:23:17', '0000-00-00 00:00:00'),
+(70, 51, 9, 'funkie lol', '2021-01-03 13:25:06', '0000-00-00 00:00:00'),
+(71, 51, 7, 'toto', '2021-01-03 13:26:02', '0000-00-00 00:00:00'),
+(72, 51, 10, 'hhihih', '2021-01-03 13:46:44', '0000-00-00 00:00:00'),
+(73, 51, 11, 'hohohohoh', '2021-01-03 13:48:55', '0000-00-00 00:00:00'),
+(74, 51, 11, 'yo mec', '2021-01-03 14:00:37', '0000-00-00 00:00:00'),
+(75, 51, 11, 'he dude', '2021-01-03 14:10:28', '0000-00-00 00:00:00'),
+(76, 51, 11, 'dont let me go', '2021-01-03 14:11:09', '0000-00-00 00:00:00'),
+(77, 51, 11, 'salut c\'est vraiment cool de discuter ici', '2021-01-03 14:11:40', '0000-00-00 00:00:00'),
+(78, 51, 7, 'heheh', '2021-01-03 15:42:03', '0000-00-00 00:00:00'),
+(79, 51, 11, 'hello', '2021-01-03 18:18:47', '0000-00-00 00:00:00'),
+(80, 51, 11, 'yo men', '2021-01-03 18:18:57', '0000-00-00 00:00:00'),
+(81, 51, 11, 'hahaha', '2021-01-03 18:19:47', '0000-00-00 00:00:00'),
+(82, 51, 2, 'hello', '2021-01-04 08:55:55', '0000-00-00 00:00:00'),
+(83, 51, 11, 'hello', '2021-01-04 08:57:48', '0000-00-00 00:00:00'),
+(84, 51, 12, 'Votre message commence ici...', '2021-01-04 08:59:22', '0000-00-00 00:00:00'),
+(85, 51, 4, 'salut putin', '2021-01-04 09:24:15', '0000-00-00 00:00:00'),
+(86, 51, 2, 'yo mec', '2021-01-04 11:42:10', '0000-00-00 00:00:00'),
+(87, 51, 7, 'hello', '2021-01-04 11:43:42', '0000-00-00 00:00:00'),
+(88, 51, 7, 'haiahai', '2021-01-04 11:45:37', '0000-00-00 00:00:00'),
+(89, 51, 7, 'haiahai', '2021-01-04 11:46:04', '0000-00-00 00:00:00'),
+(90, 51, 13, 'hello world', '2021-01-04 11:55:15', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -709,7 +872,16 @@ INSERT INTO `posts` (`id`, `id_user`, `content`, `image_path`, `created_at`, `up
 (99, 13, 'Similique consequatur vel et omnis. Et omnis nobis cupiditate veritatis. Corrupti mollitia quidem optio consequatur corrupti possimus. Omnis maxime autem asperiores tempore est fuga.', '1609014573-cover.jpg', '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
 (100, 2, 'Ad corporis explicabo molestias ut sunt itaque voluptatem. Et commodi similique tempora ut commodi non velit. Omnis minima illum cupiditate ut veritatis qui.', '1609014573-cover.jpg', '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
 (101, 51, 'Un tips à partager, besoin d\'un peu d\'aide, n\'hesites pas c\'est ici est maintenant !', NULL, '2020-12-31 16:44:26', '0000-00-00 00:00:00'),
-(102, 51, 'Hello world', '[{\"image_url\":\"1609433110-cover.jpg\"},{\"image_url\":\"1609433110-avatar.jpg\"}]', '2020-12-31 16:45:10', '0000-00-00 00:00:00');
+(102, 51, 'Hello world', '[{\"image_url\":\"1609433110-cover.jpg\"},{\"image_url\":\"1609433110-avatar.jpg\"}]', '2020-12-31 16:45:10', '0000-00-00 00:00:00'),
+(103, 51, 'Super deal https://www.ebay.fr/itm/Xiaomi-POCO-X3-6Go-64Go-732G-5160mAh-33W-NFC-Global-Version-Smartphone/143736274806?_trkparms=pageci%3Ab3fae1fb-4c45-11eb-99d0-96d60e80a242%7Cparentrq%3Abe8e8d371760a0f119bb5226fffe7222%7Ciid%3A1', '[{\"image_url\":\"1609514795-cover.jpg\"}]', '2021-01-01 15:26:35', '0000-00-00 00:00:00'),
+(104, 51, 'Super post test', '[{\"image_url\":\"1609688469-cover.jpg\"}]', '2021-01-03 15:41:09', '0000-00-00 00:00:00'),
+(105, 51, 'hello', '[{\"image_url\":\"1609750134-cover.jpg\"}]', '2021-01-04 08:48:54', '0000-00-00 00:00:00'),
+(106, 51, 'Super news https://news.google.com/articles/CAIiEF4fJeLTxjSbWMhSJ1Q5RUwqFwgEKg8IACoHCAow0OGxATD59Qkwu8Mk?hl=fr&gl=FR&ceid=FR%3Afr', '[{\"image_url\":\"1609750203-cover.jpg\"}]', '2021-01-04 08:50:03', '0000-00-00 00:00:00'),
+(107, 201, 'hello world nouveau', 'http://picture_test.png', '2021-01-04 09:38:45', '0000-00-00 00:00:00'),
+(108, 201, 'hello world nouveau', 'http://picture_test.png', '2021-01-04 11:16:02', '0000-00-00 00:00:00'),
+(109, 51, 'Un tips à partager, besoin d\'un peu d\'aide, n\'hesites pas c\'est ici est maintenant !', '[{\"image_url\":\"1609759600-cover.jpg\"}]', '2021-01-04 11:26:40', '0000-00-00 00:00:00'),
+(110, 51, 'Un tips à partager, besoin d\'un peu d\'aide, n\'hesites pas c\'est ici est maintenant !', NULL, '2021-01-04 11:28:17', '0000-00-00 00:00:00'),
+(111, 51, 'Un tips à partager, besoin d\'un peu d\'aide, n\'hesites pas c\'est ici est maintenant !', NULL, '2021-01-04 11:29:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -835,7 +1007,15 @@ INSERT INTO `post_reactions` (`id`, `id_post`, `id_reaction`, `id_user`, `create
 (102, 1, 2, 51, '2020-12-31 16:08:40', '0000-00-00 00:00:00'),
 (103, 102, 4, 51, '2020-12-31 16:45:49', '0000-00-00 00:00:00'),
 (104, 102, 4, 51, '2020-12-31 16:45:50', '0000-00-00 00:00:00'),
-(105, 102, 2, 51, '2020-12-31 16:45:51', '0000-00-00 00:00:00');
+(105, 102, 2, 51, '2020-12-31 16:45:51', '0000-00-00 00:00:00'),
+(106, 103, 2, 51, '2021-01-03 15:41:39', '0000-00-00 00:00:00'),
+(107, 103, 2, 51, '2021-01-03 15:41:39', '0000-00-00 00:00:00'),
+(108, 106, 4, 51, '2021-01-04 08:52:48', '0000-00-00 00:00:00'),
+(109, 106, 4, 51, '2021-01-04 08:52:49', '0000-00-00 00:00:00'),
+(110, 106, 1, 51, '2021-01-04 08:52:52', '0000-00-00 00:00:00'),
+(111, 106, 1, 51, '2021-01-04 08:52:52', '0000-00-00 00:00:00'),
+(112, 106, 2, 51, '2021-01-04 08:52:53', '0000-00-00 00:00:00'),
+(113, 106, 2, 51, '2021-01-04 08:52:54', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -955,7 +1135,8 @@ INSERT INTO `post_tags` (`id`, `id_tag`, `id_post`, `created_at`, `updated_at`) 
 (97, 2, 12, '2020-12-31 15:05:18', '0000-00-00 00:00:00'),
 (98, 4, 93, '2020-12-31 15:05:19', '0000-00-00 00:00:00'),
 (99, 2, 12, '2020-12-31 15:05:19', '0000-00-00 00:00:00'),
-(100, 1, 28, '2020-12-31 15:05:19', '0000-00-00 00:00:00');
+(100, 1, 28, '2020-12-31 15:05:19', '0000-00-00 00:00:00'),
+(101, 2, 109, '2021-01-04 11:26:40', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1094,7 +1275,6 @@ CREATE TABLE `users` (
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
   `birthdate` date DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `cover` varchar(255) DEFAULT NULL,
@@ -1113,58 +1293,59 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `birthdate`, `avatar`, `cover`, `linkedin`, `github`, `website`, `description`, `id_promo`, `id_training`, `admin`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, 'sydney.glover@yahoo.com', '$2y$10$l/UQ808DZ1TcaRp1lTeL3OuzLino089e2FiU8/8i2coXYLIhiK0UC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:11', '0000-00-00 00:00:00'),
-(2, NULL, NULL, 'samara.eichmann@bogisich.info', '$2y$10$9p960fPyJLmEdY33MkHiZundiLgjlCiwaFzbTHXvCSW7JHvyQC2Za', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:11', '0000-00-00 00:00:00'),
-(3, NULL, NULL, 'mayer.constance@gmail.com', '$2y$10$QKb2Rbz4Q35AyDAbucHAFul9xoXxfD/GIagcTWm0AU8N2SOcJvzAa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(4, NULL, NULL, 'funk.brannon@hotmail.com', '$2y$10$0RD9XD/Ep4X8HGLFnN4EAO5tpQsinPqm0dx0ug8e4Cgxbe1kRIyR6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(5, NULL, NULL, 'elliott52@balistreri.com', '$2y$10$yqE/jXIBDUcDlrBBYs1dvenrK5vQkiEIBiZKsJ5K2A2oznnRrenqW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(6, NULL, NULL, 'richmond.rutherford@mosciski.net', '$2y$10$rxSueNh8WvSDCrV3P1mPxukkviigZaTKBsE8drhItoyW2BSn6FoaW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(7, NULL, NULL, 'johns.delia@gmail.com', '$2y$10$Lz4Ezqb4WhXiiGQBRH6ygeKkpq5mpvoUl7g7rKerra7ymU6xaDACm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(8, NULL, NULL, 'reid.prohaska@hotmail.com', '$2y$10$Mi9/I4BGbXXxm70G9zsLiu8YlNSGHQK6kkj9BME0SUjdbQxvg55RS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(9, NULL, NULL, 'mohamed.kshlerin@jacobson.com', '$2y$10$XW/PBzUQAR8Xf3cXLQq5UethMN1O7lZ3fdaPtGKhMrE3dBTriW9Ru', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(10, NULL, NULL, 'powlowski.katharina@schoen.com', '$2y$10$oua02xQI8c6dsJK8iTIwHe7vVuniNVUkD87mJVXx2BihxL42Q96zK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(11, NULL, NULL, 'schuster.amy@ortiz.org', '$2y$10$VyN3wd7Uq6YbTddSZPk1xOFzPTlFf9.LK3Hklw2/r15a75dymPx66', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(12, NULL, NULL, 'kutch.terrell@bashirian.com', '$2y$10$2swdByO.o1J1ZDK9RmJjeejSQRbZykMqRS5wYdDHPiPS6H8AJpMh2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(13, NULL, NULL, 'belle58@gmail.com', '$2y$10$mw1hjYbGLtsTnt8k32JGN.vv3.8EKSgHI4qMrdKUkHNyi/brDTLMS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(14, NULL, NULL, 'zboncak.lester@marvin.org', '$2y$10$GOuI.ChHSTtA4ponrMsLM.SLoWgr1FtuLZzZwtrKglSEF16v7zkCq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(15, NULL, NULL, 'kaylin13@yahoo.com', '$2y$10$5GobvGo7Xbp1csyVpMk.Q.EeGZiNVsegobnMiMLLZLmK3NPkyoKca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(16, NULL, NULL, 'qharvey@mann.com', '$2y$10$9ZR1qmQB5ukbRE1qtIM7tufB7wx5iDYBOLdaacZP316j0F4CmZc9.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
-(17, NULL, NULL, 'dleannon@gmail.com', '$2y$10$ROF/Dnv.NwGw1GoOuVeM2ONGMp3c2vwN1lfhtSVr7pp/6VZv3prBG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(18, NULL, NULL, 'joanne.barton@beatty.com', '$2y$10$4B6xItKYzWe7BVCJTJP.buOmW7psQhgjJjxt4edM8db4tGPuBjnyu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(19, NULL, NULL, 'runte.joana@kuphal.org', '$2y$10$87TjorMnvLJVWpvUDX7V2ugV8w1uCirFEeWly1P.PwqkpGK5VvHra', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(20, NULL, NULL, 'hermina.kihn@gmail.com', '$2y$10$jI02a3yvOmS3ACHiPYhmXOKsBWgPy9nBhHPse1PEnS1IIYxXq4m7.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(21, NULL, NULL, 'maybelle59@gmail.com', '$2y$10$K4s5Bxq0.5PUvjtznp1DjOX59.DA5viCEod.Qs8XCxcb/2U7nizhW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(22, NULL, NULL, 'huels.henriette@russel.com', '$2y$10$NwA7LFzagIXBeBquxCoQJ.IGzgv.f2bCgYtV/j9UVWvsh5pjZKBkm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(23, NULL, NULL, 'ward52@gmail.com', '$2y$10$NJ07NBmZk63NM8Sze/9QlOsVgx50.KJ9sVpvz5J5tzZte6sSk4Eaq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(24, NULL, NULL, 'lromaguera@nicolas.com', '$2y$10$Y.aqVLQrL1g.iflVbWtSGeDRUeAgA.vrCE64GbQ6fccGvkgVRBXRS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(25, NULL, NULL, 'jamey.schumm@mccullough.com', '$2y$10$Bz84Usqlu4wqOou/T.KKeuFovyz8QBW/kGQP5SZGlQ22lVvc7Hhny', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(26, NULL, NULL, 'golden.kunze@gmail.com', '$2y$10$5Of1WtKVw5.DCG.tJXFU8OfLRO9NbTPbxG2B1dvcdgvZE8/iOfy6i', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(27, NULL, NULL, 'evelyn68@bruen.com', '$2y$10$I4mHOXAOB37W/G9TI93jbOBlFB7RTbG.HUSgC7NgXSrXSg1EIFOtq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(28, NULL, NULL, 'chermiston@huels.com', '$2y$10$v18V.HeQmf.Y3YsPJvMEHuL2iY.Ih59ApTYI1tO1GM3PxhiFGowoa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(29, NULL, NULL, 'wolff.alvina@hotmail.com', '$2y$10$rY3Bmyn1qRJA/JZbvh3js.dk6S7cwWXxHf.BL3I7CBbqNz8irtGEm', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(30, NULL, NULL, 'kristina.conn@wunsch.net', '$2y$10$7TFLZAJTfp4Mu5ATrCOus.ze6P1rM/O5GGjgxY.cWyFwWGr5V3zLC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
-(31, NULL, NULL, 'ugreenholt@connelly.com', '$2y$10$0y90FbfLkdBkM2exxjBHA.veURbJ/Mmscn.u5GBDsOjx5Dr3CnHv.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(32, NULL, NULL, 'lbosco@hotmail.com', '$2y$10$bN8RxKK4l.Jj32YD93ZKyeZh48FdRS39YGGTxmNvT1nvp6h.OxR.y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(33, NULL, NULL, 'evan17@hotmail.com', '$2y$10$TQGoYDhRrnnU3JuX7Xv4OOYd2RmBccJJ3WnI/oaUHwsh/hL.kgI9q', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(34, NULL, NULL, 'dasia43@hotmail.com', '$2y$10$hg/bZb9H6i/kkfNp34RQzu9iBuJK1x9hx7vJuyBG796a1mnblPY9q', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(35, NULL, NULL, 'stracke.kyle@mueller.info', '$2y$10$MiUH/l4veQCPjtPK.8KWKOROF9CZy/aaR1zhRfkDYFklpUVWvqYmy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(36, NULL, NULL, 'bcorwin@yahoo.com', '$2y$10$Bi4ikCaNe1r/yZ2FBPnE7e6dXLEjQ4JYLhWd6ukVkn8wvhxDmG7Uy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(37, NULL, NULL, 'zlittle@bailey.com', '$2y$10$KSLJljrGipvoRsYZ6HLXMu/YL.Lefklx/mU36xSCnEmpoDyHaqMmG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(38, NULL, NULL, 'alivia90@hotmail.com', '$2y$10$gI8if3Y7elSK92bVditgbuJdqO3YkxrEbzRTj1Jy8UZ2aDKeuUHju', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(39, NULL, NULL, 'stroman.emilie@gmail.com', '$2y$10$Nk66zDRGzcYHDWTFSfKOAu5CF0.ZO/Itrqr1lAB.XIbCDKaEd/9fS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(40, NULL, NULL, 'maggio.amely@quigley.info', '$2y$10$yFwiX.bNECe5HCyZJcmd9u2tg26EA9YAe906Z25o/3GxBopDwgs3y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(41, NULL, NULL, 'leatha.sporer@schinner.org', '$2y$10$DDdUPOHJ88HVGXVDB1G8tuJru16j0Z8e1fu0X8X9AYVwogY5/LzDS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(42, NULL, NULL, 'skylar.purdy@gmail.com', '$2y$10$HxXdTXlhIIbhCQldJZamYuEP2Kn0KbBQwGPd0Pm6KdBBtd.VVb8y6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(43, NULL, NULL, 'jaren80@hotmail.com', '$2y$10$39dl8TMjZpru2vujMhdf5ujrcHHL.kGjTWxVmCTbDSOKAtg/DNaoe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(44, NULL, NULL, 'lila28@hotmail.com', '$2y$10$Sf6eIiFLBuPorfACtAOgUu6ue8kYKJ6.90euV5SiyAVOCdJumvwXa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(45, NULL, NULL, 'krista76@gmail.com', '$2y$10$42rjGHTfbVEBLJrwUT/CYO/ndIU.tunBY2Bn2xU.aqJVfdyuCOMve', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
-(46, NULL, NULL, 'beverly84@yahoo.com', '$2y$10$82Mvkl2zOV11iTd3FwimAOlHZPc7ec.Dz/plyVfW0RgM5m0wDvp.i', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
-(47, NULL, NULL, 'dwaters@schiller.biz', '$2y$10$UNp9fZ/toM/jQE8ne6/uFuHdV3/9PMEFPC7M9n21F0ZLGI/uFNjVK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
-(48, NULL, NULL, 'fwilderman@hotmail.com', '$2y$10$81Q3ffskMSpqf1dhlGU6XeNLofDJ4.6BjRTBxOKs9D3XrNWYAfrKa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
-(49, NULL, NULL, 'goldner.kitty@wintheiser.org', '$2y$10$fkohxMnsEITESbXcQu4fc.oksmgQPHgOgUWH8P2RbWCsrOSEf0qRK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
-(50, NULL, NULL, 'klocko.alessia@brakus.biz', '$2y$10$Az9otSFKb9kVwOvi03.jCuP2ohL8Ofy/0BZLI8TC4qPDLMEn/oirO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
-(51, 'Zara', 'Bellaoui', 'zoltan@yopmail.com', '$2y$10$DYEvY9WJZwWcPP4QqxptvOtRv.ixz6QL.f7DxoML4wTdfZQh5RREC', '1994-09-14', '1609432022-avatar.jpg', '1609432026-cover.jpg', 'http://linkedin/zara.bellaoui', 'http://github/zara.bellaoui', 'http://site-perso/zara.bellaoui', 'Je m\'appelle Zara et je suis a la recherche d\'un poste dans lequel je pourrais m\'épanouir et apporter mes compétences surnaturelles en cartomancie appliquées', NULL, NULL, 0, '2020-12-31 15:19:35', '2020-12-31 18:20:09');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `birthdate`, `avatar`, `cover`, `linkedin`, `github`, `website`, `description`, `id_promo`, `id_training`, `admin`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, 'sydney.glover@yahoo.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:11', '0000-00-00 00:00:00'),
+(2, NULL, NULL, 'samara.eichmann@bogisich.info', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:11', '0000-00-00 00:00:00'),
+(3, NULL, NULL, 'mayer.constance@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(4, NULL, NULL, 'funk.brannon@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(5, NULL, NULL, 'elliott52@balistreri.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(6, NULL, NULL, 'richmond.rutherford@mosciski.net', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(7, NULL, NULL, 'johns.delia@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(8, NULL, NULL, 'reid.prohaska@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(9, NULL, NULL, 'mohamed.kshlerin@jacobson.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(10, NULL, NULL, 'powlowski.katharina@schoen.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(11, NULL, NULL, 'schuster.amy@ortiz.org', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(12, NULL, NULL, 'kutch.terrell@bashirian.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(13, NULL, NULL, 'belle58@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(14, NULL, NULL, 'zboncak.lester@marvin.org', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(15, NULL, NULL, 'kaylin13@yahoo.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(16, NULL, NULL, 'qharvey@mann.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:12', '0000-00-00 00:00:00'),
+(17, NULL, NULL, 'dleannon@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(18, NULL, NULL, 'joanne.barton@beatty.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(19, NULL, NULL, 'runte.joana@kuphal.org', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(20, NULL, NULL, 'hermina.kihn@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(21, NULL, NULL, 'maybelle59@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(22, NULL, NULL, 'huels.henriette@russel.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(23, NULL, NULL, 'ward52@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(24, NULL, NULL, 'lromaguera@nicolas.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(25, NULL, NULL, 'jamey.schumm@mccullough.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(26, NULL, NULL, 'golden.kunze@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(27, NULL, NULL, 'evelyn68@bruen.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(28, NULL, NULL, 'chermiston@huels.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(29, NULL, NULL, 'wolff.alvina@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(30, NULL, NULL, 'kristina.conn@wunsch.net', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:13', '0000-00-00 00:00:00'),
+(31, NULL, NULL, 'ugreenholt@connelly.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(32, NULL, NULL, 'lbosco@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(33, NULL, NULL, 'evan17@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(34, NULL, NULL, 'dasia43@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(35, NULL, NULL, 'stracke.kyle@mueller.info', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(36, NULL, NULL, 'bcorwin@yahoo.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(37, NULL, NULL, 'zlittle@bailey.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(38, NULL, NULL, 'alivia90@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(39, NULL, NULL, 'stroman.emilie@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(40, NULL, NULL, 'maggio.amely@quigley.info', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(41, NULL, NULL, 'leatha.sporer@schinner.org', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(42, NULL, NULL, 'skylar.purdy@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(43, NULL, NULL, 'jaren80@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(44, NULL, NULL, 'lila28@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(45, NULL, NULL, 'krista76@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:14', '0000-00-00 00:00:00'),
+(46, NULL, NULL, 'beverly84@yahoo.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
+(47, NULL, NULL, 'dwaters@schiller.biz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
+(48, NULL, NULL, 'fwilderman@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
+(49, NULL, NULL, 'goldner.kitty@wintheiser.org', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
+(50, NULL, NULL, 'klocko.alessia@brakus.biz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '2020-12-31 15:05:15', '0000-00-00 00:00:00'),
+(51, 'Zara', 'Bellaoui', 'zoltan@yopmail.com', '1994-09-14', '1609757448-avatar.jpg', '1609757456-cover.jpg', 'http://linkedin/zara.bellaoui', 'http://github/zara.bellaoui', 'http://site-perso/zara.bellaoui', 'Je m\'appelle Zara et je suis a la recherche d\'un poste dans lequel je pourrais m\'épanouir et apporter mes compétences surnaturelles en cartomancie appliquées', NULL, NULL, 0, '2020-12-31 15:19:35', '2021-01-04 10:50:56'),
+(52, NULL, NULL, 'antoine.le-guillou@laplateforme.io', NULL, '1609791435-avatar.jpg', '1609791434-cover.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2021-01-04 19:29:49', '2021-01-04 20:17:15');
 
 -- --------------------------------------------------------
 
@@ -1286,7 +1467,10 @@ INSERT INTO `user_hobbies` (`id`, `id_user`, `id_hobby`, `created_at`, `updated_
 (99, 2, 3, '2020-12-31 15:05:17', '0000-00-00 00:00:00'),
 (100, 2, 2, '2020-12-31 15:05:17', '0000-00-00 00:00:00'),
 (101, 51, 3, '2020-12-31 16:24:35', '0000-00-00 00:00:00'),
-(103, 51, 2, '2020-12-31 17:28:19', '0000-00-00 00:00:00');
+(103, 51, 2, '2020-12-31 17:28:19', '0000-00-00 00:00:00'),
+(104, 51, 5, '2021-01-01 15:27:35', '0000-00-00 00:00:00'),
+(105, 51, 3, '2021-01-04 08:53:47', '0000-00-00 00:00:00'),
+(106, 52, 3, '2021-01-04 20:17:25', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1409,7 +1593,9 @@ INSERT INTO `user_skills` (`id`, `id_user`, `id_skill`, `created_at`, `updated_a
 (100, 2, 7, '2020-12-31 15:05:17', '0000-00-00 00:00:00'),
 (103, 51, 6, '2020-12-31 16:24:29', '0000-00-00 00:00:00'),
 (104, 51, 1, '2020-12-31 17:11:53', '0000-00-00 00:00:00'),
-(105, 51, 3, '2020-12-31 17:28:22', '0000-00-00 00:00:00');
+(105, 51, 3, '2020-12-31 17:28:22', '0000-00-00 00:00:00'),
+(108, 51, 3, '2021-01-04 08:53:42', '0000-00-00 00:00:00'),
+(109, 52, 4, '2021-01-04 20:17:21', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -1556,31 +1742,31 @@ ALTER TABLE `user_skills`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `chat_users`
 --
 ALTER TABLE `chat_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `experiences`
 --
 ALTER TABLE `experiences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `hobbies`
@@ -1592,31 +1778,31 @@ ALTER TABLE `hobbies`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `post_reactions`
 --
 ALTER TABLE `post_reactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `post_tags`
 --
 ALTER TABLE `post_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `promos`
@@ -1652,19 +1838,19 @@ ALTER TABLE `trainings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `user_hobbies`
 --
 ALTER TABLE `user_hobbies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `user_skills`
 --
 ALTER TABLE `user_skills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
