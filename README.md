@@ -4,7 +4,7 @@
 
 ## FRONTEND 
 
-The frontend part of the application has been developped using React libraries and is available at <https://github.com/antoine-leguillou/laplateforme-network-front-end>
+The frontend part of the application has been developped using React libraries and is available at <https://github.com/antoine-tech/laplateforme-network-frontend>
 
 ### DESCRIPTION
 
