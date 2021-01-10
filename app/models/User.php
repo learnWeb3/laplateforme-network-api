@@ -12,6 +12,28 @@ class User extends Application
         $this->id = $id;
     }
 
+
+    public function streamFeedUpdates(PDO $connection)
+    {
+        $timestamp = strftime('%F %H:%M:%S', time());
+        header('Content-type: text/event-stream');
+        header('Cache-control: no-cache');
+        header('Connection: Keep-Alive');
+        while (true) {
+    
+            $json_data = json_encode($this->getFeedUpdates($connection, $timestamp));
+            echo 'data: ' . $json_data;
+            echo "\n\n";
+            flush(); // attempt to remove auto caching of data to not wait until end of script execution to print data
+            ob_flush();
+            ob_end_flush();
+            if (!empty($json_data)) {
+                $timestamp = strftime('%F %H:%M:%S', time());
+            }
+            sleep(1);
+        }
+    }
+
     public static function getUsers(PDO $connection, array $parameters, int $limit, int $offset)
     {
         if (!empty($parameters)) {
@@ -131,6 +153,11 @@ class User extends Application
         return Request::send($connection, $request_body, [$this->id])->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getFeedUpdates(PDO $connection, string $timestamp)
+    {
+        $request_body = "SELECT * FROM posts WHERE created_at >= ? OR updated_at >= ?";
+        return Request::send($connection, $request_body, ["$timestamp", "$timestamp"])->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function getFeedContent(PDO $connection, $endpoint_path, $offset, $limit)
     {
@@ -291,28 +318,31 @@ class User extends Application
         }
     }
 
-    public static function checkUser($connection, $dataGoogle){
+    public static function checkUser($connection, $dataGoogle)
+    {
 
-            try{
-                $req = $connection->prepare("SELECT * FROM users WHERE email = ?");
-                $req->execute([$dataGoogle['email']]);
-                $user = $req->fetch();
+        try {
+            $req = $connection->prepare("SELECT * FROM users WHERE email = ?");
+            $req->execute([$dataGoogle['email']]);
+            $user = $req->fetch();
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
 
-            }catch (PDOException $e){
+        //If empty register user
+        if (empty($user)) {
+            try {
+                User::create(
+                    $connection,
+                    ['email', 'firstname', 'lastname', 'avatar'],
+                    [$dataGoogle['email'], $dataGoogle['given_name'], $dataGoogle['family_name'], $dataGoogle['picture']]
+                );
+                return User::lastCreatedRow($connection)->fetchAll(PDO::FETCH_ASSOC)[0];
+            } catch (PDOException $e) {
                 return $e->getMessage();
             }
-
-            //If empty register user
-            if(empty($user)){
-                try{
-                    User::create($connection, ['email', 'firstname', 'lastname', 'avatar'],
-                        [$dataGoogle['email'], $dataGoogle['given_name'], $dataGoogle['family_name'], $dataGoogle['picture']]);
-                    return User::lastCreatedRow($connection)->fetchAll(PDO::FETCH_ASSOC)[0];
-                }catch (PDOException $e){
-                    return $e->getMessage();
-                }
-            }else{
-                return $user;
-            }
+        } else {
+            return $user;
+        }
     }
 }

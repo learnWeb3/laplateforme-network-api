@@ -51,7 +51,9 @@ define(
         // CHATS
         "ChatsController",
         //GOOGLE AUTH
-        "GoogleController"
+        "GoogleController",
+        // PUSHER
+        'PusherController'
     ]
 );
 

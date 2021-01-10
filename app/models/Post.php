@@ -78,7 +78,6 @@ class Post extends Application
     }
 
 
-
     public function getDatas(PDO $connection)
     {
         $comments = $this->getComments($connection);

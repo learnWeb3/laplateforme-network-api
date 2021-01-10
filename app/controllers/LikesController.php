@@ -16,6 +16,7 @@ class LikesController  extends ApplicationController
       if (isset($this->request_params['id_post'])) {
         try {
           Like::create($this->connection, ['id_post', 'id_user'], [$this->request_params['id_post'], $this->current_user['id']]);
+          Post::update($this->connection, ['updated_at'], [strftime('%F %H:%M:%S', time())], 'id', $this->request_params['id_post']);
           echo json_encode(Like::lastCreatedRow($this->connection)->fetchAll(PDO::FETCH_ASSOC)[0]);
         } catch (Exception $error) {
           die(http_response_code(500));
@@ -34,6 +35,7 @@ class LikesController  extends ApplicationController
     if (isset($this->Like)) {
       try {
         Like::delete($this->connection, [], 'id', $this->Like['id']);
+        Post::update($this->connection, ['updated_at'], [strftime('%F %H:%M:%S', time())], 'id', $this->Like['id_post']);
         die(http_response_code(204));
       } catch (Exception $error) {
         die(http_response_code(500));

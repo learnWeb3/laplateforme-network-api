@@ -96,6 +96,8 @@ define(
         array("method" => "GET", "path" => '/' . 'chats' .  '/:chat_id', "route" => "chats#show"),
         array("method" => "POST", "path" => '/' . 'chats', "route" => "chats#create"),
         array("method" => "DELETE", "path" => '/' . 'chats' .  '/:chat_id', "route" => "chats#delete"),
+        // live update stream
+        array("method" => "GET", "path" => '/' . 'stream', "route" => "pusher#index"),
     )
 
 );

@@ -47,7 +47,8 @@ class ApplicationController
     protected function beforeAll()
     {
         try {
-            $decoded = JWT::decode($this->token, JWT_SECRET_KEY, array('HS256'));
+            $token = empty($this->token) ?   $_COOKIE['jwt_token'] : $this->token;
+            $decoded = JWT::decode($token, JWT_SECRET_KEY, array('HS256'));
             $this->current_user = json_decode($decoded->sub, true);
         } catch (Exception $error) {
         }
@@ -60,7 +61,7 @@ class ApplicationController
             $this->query_string = array_filter($_GET, function ($value, $key) use ($filtered_out_params) {
                 return !in_array($key, $filtered_out_params);
             }, ARRAY_FILTER_USE_BOTH);
-        }
+        };
     }
 
     protected function permit(array $authorized_parameters = null)

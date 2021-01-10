@@ -18,6 +18,7 @@ class PostReactionsController  extends ApplicationController
             if (isset($this->request_params['id_post'], $this->request_params['id_reaction'])) {
                 try {
                     PostReaction::create($this->connection, ['id_post', 'id_reaction', 'id_user'], [$this->request_params['id_post'], $this->request_params['id_reaction'], $this->current_user['id']]);
+                    Post::update($this->connection, ['updated_at'], [strftime('%F %H:%M:%S', time())], 'id', $this->request_params['id_post']);
                     echo json_encode(PostReaction::lastCreatedRow($this->connection)->fetchAll(PDO::FETCH_ASSOC)[0]);
                 } catch (Exception $error) {
                     die(http_response_code(500));
@@ -36,6 +37,7 @@ class PostReactionsController  extends ApplicationController
         if (isset($this->reaction)) {
             try {
                 PostReaction::delete($this->connection, [], 'id', $this->reaction['id']);
+                Post::update($this->connection, ['updated_at'], [strftime('%F %H:%M:%S', time())], 'id', $this->reaction['id_post']);
                 die(http_response_code(204));
             } catch (Exception $error) {
                 die(http_response_code(500));

@@ -48,6 +48,7 @@ class CommentsController extends ApplicationController
       if (isset($this->request_params['id_post'], $this->request_params['content'])) {
         try {
           Comment::create($this->connection, ['id_post', 'id_user', 'content'], [$this->request_params['id_post'], $this->current_user['id'], $this->request_params['content']]);
+          Post::update($this->connection, ['updated_at'], [strftime('%F %H:%M:%S', time())], 'id', $this->request_params['id_post']);
           echo json_encode(Comment::lastCreatedRow($this->connection)->fetchAll(PDO::FETCH_ASSOC)[0]);
         } catch (Exception $error) {
           die(http_response_code(500));
@@ -78,6 +79,7 @@ class CommentsController extends ApplicationController
     if (isset($this->comment)) {
       try {
         Comment::delete($this->connection, [], 'id', $this->comment['id']);
+        Post::update($this->connection, ['updated_at'], [strftime('%F %H:%M:%S', time())], 'id', $this->comment['id_post']);
         die(http_response_code(204));
       } catch (Exception $error) {
         die(http_response_code(500));
