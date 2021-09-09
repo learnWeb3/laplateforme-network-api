@@ -21,9 +21,9 @@ The POSTMAN API documentation is available at :
 php composer.phar install
 ```
 
-[google/apiclient](https://github.com/googleapis/google-api-php-client) Google APIs Wrapper for PHP
-[firebase/php-jwt](https://github.com/firebase/php-jwt) JWT TOKEN authentication
-[fzaninotto/faker](https://github.com/fzaninotto/Faker) Fake data generator
+- [google/apiclient](https://github.com/googleapis/google-api-php-client) Google APIs Wrapper for PHP
+- [firebase/php-jwt](https://github.com/firebase/php-jwt) JWT TOKEN authentication
+- [fzaninotto/faker](https://github.com/fzaninotto/Faker) Fake data generator
 
 ### NOTICES
 
